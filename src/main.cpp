@@ -1,9 +1,15 @@
 #include "ReadFasta.h"
 #include "ReadFastq.h"
+#include <iostream>
 
-int main() {
-    std::string fasta_file = "example.fasta";
-    std::string fastq_file = "example.fastq";
+int main(int argc, char* argv[]) {
+    if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " <fasta_file> <fastq_file>\n";
+        return 1;
+    }
+
+    std::string fasta_file = argv[1];
+    std::string fastq_file = argv[2];
 
     // Read and print FASTA sequences
     ReadFasta fastaReader(fasta_file);
