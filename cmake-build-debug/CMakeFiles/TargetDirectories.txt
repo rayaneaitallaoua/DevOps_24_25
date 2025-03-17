@@ -1,0 +1,3 @@
+/Users/ayoubrayaneaitallaoua/CLionProjects/DevOps_mine/cmake-build-debug/CMakeFiles/DevOps_mine.dir
+/Users/ayoubrayaneaitallaoua/CLionProjects/DevOps_mine/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ayoubrayaneaitallaoua/CLionProjects/DevOps_mine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

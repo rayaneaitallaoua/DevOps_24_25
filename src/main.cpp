@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     // Read and print FASTA sequences
     ReadFasta fastaReader(fasta_file);
     fastaReader.load();
-    std::cout << "=== FASTA Sequences ===\n";
+    std::cout << "\n=== FASTA Sequences ===\n";
     fastaReader.printSequences();
 
     // Read and print FASTQ reads
