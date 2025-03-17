@@ -1,4 +1,4 @@
-#include "ReadFasta.hpp"
+#include "ReadFasta.h"
 
 ReadFasta::ReadFasta(const std::string& filename) : filename(filename) {}
 

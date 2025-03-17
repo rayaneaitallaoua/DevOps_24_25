@@ -1,5 +1,5 @@
-#include "ReadFasta.hpp"
-#include "ReadFastq.hpp"
+#include "ReadFasta.h"
+#include "ReadFastq.h"
 
 int main() {
     std::string fasta_file = "example.fasta";

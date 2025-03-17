@@ -1,4 +1,4 @@
-#include "ReadFastq.hpp"
+#include "ReadFastq.h"
 
 ReadFastq::ReadFastq(const std::string& filename) : filename(filename) {}
 

@@ -1,4 +1,4 @@
-#include "Sequence.hpp"
+#include "Sequence.h"
 
 Sequence::Sequence(const std::string& id, const std::string& seq, const std::string& qual) 
     : id(id), sequence(seq), quality(qual) {}
