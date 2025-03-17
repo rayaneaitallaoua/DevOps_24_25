@@ -1,16 +1,20 @@
-//
-// Created by Ayoub Rayane Ait Allaoua on 17/03/2025.
-//
+#ifndef READFASTA_HPP
+#define READFASTA_HPP
 
-#ifndef READFASTA_H
-#define READFASTA_H
-
-
+#include "Sequence.hpp"
+#include <vector>
+#include <fstream>
+#include <string>
 
 class ReadFasta {
+public:
+    ReadFasta(const std::string& filename);
+    void load();
+    void printSequences() const;
 
+private:
+    std::string filename;
+    std::vector<Sequence> sequences;
 };
 
-
-
-#endif //READFASTA_H
+#endif
