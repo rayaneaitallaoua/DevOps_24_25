@@ -1,27 +1,32 @@
-#include "ReadFasta.h"
-#include "ReadFastq.h"
-#include <iostream>
+// #include "ReadFasta.hpp"
+// #include "ReadFastq.hpp"
+// #include <iostream>
+#include "Mapper.hpp"
 
 int main(int argc, char* argv[]) {
-    if (argc < 3) {
-        std::cerr << "Usage: " << argv[0] << " <fasta_file> <fastq_file>\n";
+    if (argc < 4) {
+        std::cerr << "Usage: " << argv[0] << " <reference.fasta> <reads.fasta/fastq> <is_fastq (0/1)>\n";
         return 1;
     }
 
-    std::string fasta_file = argv[1];
-    std::string fastq_file = argv[2];
+    std::string ref_file = argv[1];
+    std::string reads_file = argv[2];
+    bool isFastq = (std::stoi(argv[3]) == 1);
 
-    // Read and print FASTA sequences
-    ReadFasta fastaReader(fasta_file);
-    fastaReader.load();
-    std::cout << "\n=== FASTA Sequences ===\n";
-    fastaReader.printSequences();
+    int k = 5;  // Choisir une valeur raisonnable de k
+    Mapper mapper(k);
 
-    // Read and print FASTQ reads
-    ReadFastq fastqReader(fastq_file);
-    fastqReader.load();
-    std::cout << "\n=== FASTQ Reads ===\n";
-    fastqReader.printReads();
+    std::cout << "Loading reference genome...\n";
+    mapper.loadReference(ref_file);
+
+    std::cout << "Loading reads...\n";
+    mapper.loadReads(reads_file, isFastq);
+
+    std::cout << "Mapping reads...\n";
+    mapper.mapReads();
+
+    std::cout << "Mapping results:\n";
+    mapper.printMappings();
 
     return 0;
 }

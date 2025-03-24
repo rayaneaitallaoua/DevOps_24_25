@@ -1,7 +1,7 @@
 #ifndef READFASTQ_HPP
 #define READFASTQ_HPP
 
-#include "Sequence.h"
+#include "Sequence.hpp"
 #include <vector>
 #include <fstream>
 #include <string>

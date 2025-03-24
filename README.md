@@ -10,6 +10,8 @@ les commandes basiques de git :
 `git rm`
 `git diff`
 
+Reminder: fix the names .H to .hpp mess in ReadFasta/q and sequence
+
 Mon gameplan:
 
 Semaine 1 : Développement de l’algorithme et de la structure de données

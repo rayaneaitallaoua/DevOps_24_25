@@ -7,9 +7,9 @@ include_directories(src)
 
 add_executable(DevOps_mine
     src/main.cpp
-    src/ReadFasta.cpp
-    src/ReadFasta.h
-    src/ReadFastq.cpp
-    src/ReadFastq.h
-    src/Sequence.cpp
-    src/Sequence.h)
+        src/ReadFasta.cpp
+        src/ReadFasta.hpp
+        src/ReadFastq.cpp
+        src/ReadFastq.hpp
+        src/Sequence.cpp
+        src/Sequence.hpp)
