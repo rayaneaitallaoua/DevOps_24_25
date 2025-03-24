@@ -2,6 +2,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 namespace fs = std::filesystem;
 
@@ -36,4 +37,18 @@ std::string detectFileFormat(const std::string& filename) {
         if (firstLine[0] == '@') return "fastq";
     }
     return "unknown";
+}
+
+std::string reverseComplement(const std::string& seq) {
+    std::string rc;
+    for (auto it = seq.rbegin(); it != seq.rend(); ++it) {
+        switch (*it) {
+            case 'A': rc += 'T'; break;
+            case 'T': rc += 'A'; break;
+            case 'C': rc += 'G'; break;
+            case 'G': rc += 'C'; break;
+            default: rc += 'N'; break; // si caractère inconnu
+        }
+    }
+    return rc;
 }

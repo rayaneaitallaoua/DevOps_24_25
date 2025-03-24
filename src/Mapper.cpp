@@ -59,12 +59,18 @@ void Mapper::loadReadsFromDirectory(const std::string& dirPath) {
 // Effectue le mapping des reads sur le génome de référence
 void Mapper::mapReads() {
     for (const auto& read : reads) {
-        std::vector<int> positions = genomeIndex.searchKmer(read.getSequence().substr(0, k));
+        std::string strand; // contiendra "+" ou "-" ou "NA"
+
+        // On cherche le k-mer dans les deux brins
+        std::vector<int> positions = genomeIndex.searchKmerWithStrand(
+            read.getSequence().substr(0, k), strand);
 
         if (!positions.empty() && positions.size() >= min_hits) {
             mappings[read.getId()] = positions;
+            strandInfo[read.getId()] = strand;
         } else {
-            mappings[read.getId()] = {-1}; // -1 signifie "non trouvé"
+            mappings[read.getId()] = {-1};
+            strandInfo[read.getId()] = "NA";
         }
     }
 }
@@ -72,7 +78,9 @@ void Mapper::mapReads() {
 // Affiche les résultats du mapping
 void Mapper::printMappings() const {
     for (const auto& [read_id, positions] : mappings) {
-        std::cout << "Read " << read_id << " mapped at positions: ";
+        std::cout << "Read " << read_id
+                  << " mapped on strand " << strandInfo.at(read_id)
+                  << " at positions: ";
 
         for (int pos : positions) {
             if (pos == -1) std::cout << "Not found";

@@ -12,6 +12,9 @@ public:
     void indexGenome(const std::string& genome);
     std::vector<int> searchKmer(const std::string& kmer) const;
     void printIndex() const;
+    std::vector<int> searchKmerWithStrand(const std::string& kmer, std::string& strand) const;
+    std::string getKmerAtPosition(int i) const;
+    std::string genome;
 
 private:
     int k;

@@ -13,6 +13,7 @@ public:
     void loadReadsFromDirectory(const std::string& dirPath);
     void mapReads();
     void printMappings() const;
+    std::unordered_map<std::string, std::string> strandInfo;
 
 private:
     int k;  // Taille des k-mers

@@ -1,6 +1,0 @@
-seq1    # Missing '>'
-AGCTAGCTAGCTAGCTA
->seq2
-CGTATCGATCGATCGTA
->seq3
-TTGCAAGCTAGGCTTAC123   # Contains non-ACGT characters

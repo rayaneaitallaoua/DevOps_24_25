@@ -10,4 +10,7 @@ std::vector<std::string> listFilesInDirectory(const std::string& dirPath);
 // Détecte si un fichier est FASTA ou FASTQ
 std::string detectFileFormat(const std::string& filename);
 
+// obtenir la séquence du complément reverse
+std::string reverseComplement(const std::string& seq);
+
 #endif
