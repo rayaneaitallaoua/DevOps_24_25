@@ -1,0 +1,33 @@
+/**
+ * @mainpage Projet de Développement Operationnel Avancé 2025 - Documentation
+ *
+ * @section intro_section Introduction
+ *
+ * Ce projet en C++ permet de :
+ * - Lire des fichiers FASTA et FASTQ
+ * - Nettoyer et valider les séquences
+ * - Indexer un génome avec des k-mers
+ * - Mapper les reads sur le génome en tenant compte du brin complémentaire
+ * - Afficher ou exporter les résultats
+ *
+ * @section usage_section Utilisation
+ * Compilation :
+ * @code
+ * g++ -std=c++17 -o main main.cpp *.cpp
+ * @endcode
+ *
+ * Exécution :
+ * @code
+ * ./main reference.fasta dossier_reads/ <taille du kmer> <seuil de confiance>
+ * @endcode
+ *
+ * @section files_section Fichiers Principaux
+ * - Sequence : classe de base pour les reads
+ * - ReadFasta / ReadFastq : lecture et validation
+ * - KmerIndex : indexation des k-mers
+ * - Mapper : algorithme de mapping
+ * - Utils : fonctions utilitaires
+ *
+ * @section author_section Auteur
+ * Projet universitaire réalisé par AIT ALLAOUA Rayane Ayoub
+ */

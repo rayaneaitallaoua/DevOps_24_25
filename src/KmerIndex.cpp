@@ -1,5 +1,6 @@
 #include "KmerIndex.hpp"
 #include "Utils.hpp"
+#include <iostream>
 
 KmerIndex::KmerIndex(int k) : k(k) {}
 
