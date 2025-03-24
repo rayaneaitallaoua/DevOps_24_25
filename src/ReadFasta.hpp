@@ -22,9 +22,6 @@ public:
      */
     ReadFasta(const std::string& filename);
 
-    /**
-     * @brief Charge les séquences à partir du fichier FASTA
-     */
     void load();
 
     /**
@@ -34,7 +31,6 @@ public:
 
     /**
      * @brief Retourne les séquences valides lues depuis le fichier
-     * @return Un vecteur de Sequence valides
      */
     std::vector<Sequence> getSequences() const;
 

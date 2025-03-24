@@ -9,7 +9,6 @@
 
 /**
  * @brief Constructeur de la classe ReadFasta
- * @param filename Le chemin vers le fichier FASTA à lire
  */
 ReadFasta::ReadFasta(const std::string& filename) : filename(filename) {}
 
