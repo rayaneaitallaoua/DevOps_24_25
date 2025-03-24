@@ -11,6 +11,7 @@ public:
     ReadFasta(const std::string& filename);
     void load();
     void printSequences() const;
+    std::vector<Sequence> getSequences() const;
 
 private:
     std::string filename;

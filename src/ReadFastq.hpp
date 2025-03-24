@@ -11,6 +11,7 @@ public:
     ReadFastq(const std::string& filename);
     void load();
     void printReads() const;
+    std::vector<Sequence> getReads() const;
 
 private:
     std::string filename;

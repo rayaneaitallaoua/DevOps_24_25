@@ -61,3 +61,7 @@ void ReadFasta::printSequences() const {
         seq.print();
     }
 }
+
+std::vector<Sequence> ReadFasta::getSequences() const {
+    return sequences;
+}

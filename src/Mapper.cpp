@@ -4,8 +4,9 @@
 #include "Utils.hpp"
 #include <iostream>
 
-Mapper::Mapper(int k) : k(k), genomeIndex(k) {}
+Mapper::Mapper(int k, int min_hits) : k(k), min_hits(min_hits), genomeIndex(k) {}
 
+// Charge et indexe le génome de référence depuis un fichier FASTA
 void Mapper::loadReference(const std::string& filename) {
     ReadFasta fastaReader(filename);
     fastaReader.load();
@@ -20,6 +21,7 @@ void Mapper::loadReference(const std::string& filename) {
     genomeIndex.indexGenome(genome);
 }
 
+// Charge les reads depuis un dossier en détectant automatiquement s'ils sont en FASTA ou FASTQ
 void Mapper::loadReadsFromDirectory(const std::string& dirPath) {
     std::vector<std::string> files = listFilesInDirectory(dirPath);
 
@@ -54,18 +56,20 @@ void Mapper::loadReadsFromDirectory(const std::string& dirPath) {
     }
 }
 
+// Effectue le mapping des reads sur le génome de référence
 void Mapper::mapReads() {
     for (const auto& read : reads) {
         std::vector<int> positions = genomeIndex.searchKmer(read.getSequence().substr(0, k));
 
-        if (!positions.empty()) {
+        if (!positions.empty() && positions.size() >= min_hits) {
             mappings[read.getId()] = positions;
         } else {
-            mappings[read.getId()] = {-1};
+            mappings[read.getId()] = {-1}; // -1 signifie "non trouvé"
         }
     }
 }
 
+// Affiche les résultats du mapping
 void Mapper::printMappings() const {
     for (const auto& [read_id, positions] : mappings) {
         std::cout << "Read " << read_id << " mapped at positions: ";

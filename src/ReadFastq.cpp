@@ -50,3 +50,7 @@ void ReadFastq::printReads() const {
         read.print();
     }
 }
+
+std::vector<Sequence> ReadFastq::getReads() const {
+    return reads;
+}
