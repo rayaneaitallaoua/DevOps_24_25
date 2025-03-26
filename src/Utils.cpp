@@ -33,7 +33,7 @@ std::string detectFileFormat(const std::string& filename) {
     std::getline(file, firstLine);
     
     if (!firstLine.empty()) {
-        if (firstLine[0] == '>') return "fasta";
+        if (firstLine[0] == '>' || firstLine[0] == ';') return "fasta";
         if (firstLine[0] == '@') return "fastq";
     }
     return "unknown";
