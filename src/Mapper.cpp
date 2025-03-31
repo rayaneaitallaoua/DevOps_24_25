@@ -8,21 +8,13 @@
 #include "ReadFastq.hpp"
 #include "Utils.hpp"
 #include <iostream>
+#include <fstream>
 #include <unordered_map>
 #include <map>
 #include <algorithm>
 
-/**
- * @brief Constructeur de la classe Mapper
- * @param k taille des k-mers à utiliser pour l'indexation et le mapping
- * @param min_hits seuil minimum de k-mers alignés pour considérer un read mappé
- */
 Mapper::Mapper(int k, int min_hits) : k(k), min_hits(min_hits), genomeIndex(k) {}
 
-/**
- * @brief Charge le génome de référence depuis un fichier FASTA et l'indexe avec les k-mers
- * @param filename chemin vers le fichier FASTA contenant le génome
- */
 void Mapper::loadReference(const std::string& filename) {
     ReadFasta fastaReader(filename);
     fastaReader.load();
@@ -35,10 +27,6 @@ void Mapper::loadReference(const std::string& filename) {
     genomeIndex.indexGenome(genome);
 }
 
-/**
- * @brief Charge et valide tous les reads (FASTA ou FASTQ) présents dans un dossier
- * @param dirPath chemin vers le dossier contenant les fichiers de reads
- */
 void Mapper::loadReadsFromDirectory(const std::string& dirPath) {
     std::vector<std::string> files = listFilesInDirectory(dirPath);
 
@@ -71,61 +59,62 @@ void Mapper::loadReadsFromDirectory(const std::string& dirPath) {
     }
 }
 
-/**
- * @brief Effectue le mapping de tous les reads valides sur le génome indexé
- */
 void Mapper::mapReads() {
     for (const auto& read : reads) {
         MappingResult result = analyzeRead(read);
         mappings[read.getId()] = {result.start_pos};
         strandInfo[read.getId()] = result.strand;
         variations[read.getId()] = result.variation;
+        mappingResults[read.getId()] = result;
     }
 }
 
-/**
- * @brief Affiche les résultats du mapping pour chaque read (position, brin, variation)
- */
-void Mapper::printMappings() const {
-    for (const auto& [read_id, positions] : mappings) {
-        std::cout << "Read " << read_id
-                  << " mapped on strand " << strandInfo.at(read_id)
-                  << " at positions: ";
+void Mapper::exportMappingsToCSV(const std::string& filename) const {
+    std::ofstream out(filename);
+    if (!out.is_open()) {
+        std::cerr << "Error: Cannot open output file " << filename << "\n";
+        return;
+    }
 
-        for (int pos : positions) {
-            if (pos == -1) std::cout << "Not found";
-            else std::cout << pos << " ";
+    // Écriture des paramètres d'analyse
+    out << "k-mer size," << k << "\n";
+    out << "minimum hits," << min_hits << "\n\n";
+
+    // En-tête du CSV
+    out << "read_id,sequence,alignment_percentage,start_position,variation_type,variation_position\n";
+
+    for (const auto& read : reads) {
+        const std::string& id = read.getId();
+        const std::string& seq = read.getSequence();
+        const MappingResult& result = mappingResults.at(id);
+
+        int total_kmers = static_cast<int>(seq.length()) - k + 1;
+        int aligned_kmers = static_cast<int>(result.aligned_kmer_indices.size());
+        double alignment_percentage = (total_kmers > 0) ? 100.0 * aligned_kmers / total_kmers : 0.0;
+
+        int variation_position = -1;
+        for (int i = 0; i <= static_cast<int>(seq.length()) - k; ++i) {
+            if (std::find(result.aligned_kmer_indices.begin(), result.aligned_kmer_indices.end(), i) == result.aligned_kmer_indices.end()) {
+                variation_position = i;
+                break;
+            }
         }
 
-        std::cout << " | Variation: " << variations.at(read_id) << "\n";
+        out << id << ","
+            << seq << ","
+            << alignment_percentage << ","
+            << result.start_pos << ","
+            << result.variation << ","
+            << variation_position << "\n";
     }
+
+    out.close();
 }
 
-/**
- * @brief Donne accès à l'objet KmerIndex utilisé pour indexer le génome
- * @return référence vers l'index des k-mers
- */
 KmerIndex& Mapper::getGenomeIndex() {
     return genomeIndex;
 }
 
-/**
- * @brief Analyse un read en examinant les positions de tous ses k-mers sur le génome
- *
- * Pour chaque k-mer du read :
- * - recherche dans l'index (ou reverse complement)
- * - vote pour la position estimée de départ du read
- * - identification du brin principal
- * - comptage du nombre de k-mers alignés
- *
- * Une variation est inférée selon le nombre de k-mers alignés :
- * - "none" si tous les k-mers sont alignés
- * - "mutation" si certains k-mers manquent
- * - "error" si trop peu sont alignés
- *
- * @param read objet Sequence à analyser
- * @return un MappingResult contenant toutes les infos d'alignement
- */
 MappingResult Mapper::analyzeRead(const Sequence& read) {
     MappingResult result;
     std::string seq = read.getSequence();

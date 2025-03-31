@@ -1,33 +1,47 @@
 #include "Mapper.hpp"
 #include <iostream>
-#include <cstdlib> // Pour std::stoi
+#include <filesystem>
 
 int main(int argc, char* argv[]) {
-    // Vérifie si les bons arguments sont fournis
-    if (argc < 5) {
+    if (argc < 4) {
         std::cerr << "Usage: " << argv[0] << " <reference.fasta> <reads_directory> <k> <min_hits>\n";
         return 1;
     }
 
-    std::string ref_file = argv[1];     // Fichier FASTA du génome de référence
-    std::string reads_dir = argv[2];    // Dossier contenant les reads
-    int k = std::stoi(argv[3]);         // Longueur des k-mers (convertie de string à int)
-    int min_hits = std::stoi(argv[4]);  // Seuil minimum de hits pour considérer un mapping valide
+    std::string refPath = argv[1];
+    std::string readsDir = argv[2];
+    int k = std::stoi(argv[3]);
+    int min_hits = std::stoi(argv[4]);
 
-    // Instancie la classe Mapper avec les valeurs définies par l'utilisateur
     Mapper mapper(k, min_hits);
 
     std::cout << "Loading reference genome...\n";
-    mapper.loadReference(ref_file);
+    mapper.loadReference(refPath);
 
     std::cout << "Loading reads from directory...\n";
-    mapper.loadReadsFromDirectory(reads_dir);
+    mapper.loadReadsFromDirectory(readsDir);
 
     std::cout << "Mapping reads...\n";
     mapper.mapReads();
 
-    std::cout << "Mapping results:\n";
-    mapper.printMappings();
+    std::string outputDir;
+    std::cout << "Veuillez entrer le dossier où enregistrer les résultats : ";
+    std::getline(std::cin, outputDir);
+
+    // Vérifie si le dossier existe
+    if (!std::filesystem::exists(outputDir)) {
+        std::cerr << "Erreur : le dossier n'existe pas.\n";
+        return 1;
+    }
+
+    // Construit le chemin final du fichier CSV
+    std::string outputPath = outputDir;
+    if (outputPath.back() != '/' && outputPath.back() != '\\')
+        outputPath += "/";
+    outputPath += "mapping_results.csv";
+
+    mapper.exportMappingsToCSV(outputPath);
+    std::cout << "Résultats exportés dans : " << outputPath << "\n";
 
     return 0;
 }
