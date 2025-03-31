@@ -13,14 +13,6 @@ void KmerIndex::indexGenome(const std::string& sequence) {
     }
 }
 
-std::vector<int> KmerIndex::searchKmer(const std::string& kmer) const {
-    auto it = index.find(kmer);
-    if (it != index.end()) {
-        return it->second;
-    }
-    return {};  // Retourne un vecteur vide si le k-mer n'est pas trouvé
-}
-
 std::string KmerIndex::getKmerAtPosition(int i) const {
     if (i >= 0 && i <= genome.size() - k) {
         return genome.substr(i, k); // extrait le k-mer à la position i

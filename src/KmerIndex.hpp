@@ -34,13 +34,6 @@ public:
     void indexGenome(const std::string& genome);
 
     /**
-     * @brief Recherche un k-mer et retourne ses positions si trouvé
-     * @param kmer Le k-mer à rechercher
-     * @return Vecteur de positions du k-mer (ou vide si absent)
-     */
-    std::vector<int> searchKmer(const std::string& kmer) const;
-
-    /**
      * @brief Recherche un k-mer ou son brin complémentaire inversé
      * @param kmer Le k-mer à rechercher
      * @param strand Variable de sortie : "+", "-" ou "NA"
