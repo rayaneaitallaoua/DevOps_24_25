@@ -1,0 +1,27 @@
+k-mer size,5
+minimum hits,2
+
+total reads,16
+mapped reads,14,87.5%
+unmapped reads,2,12.5%
+median read quality (all reads),37
+median read quality (mapped reads),38
+mean read quality (mapped reads),37.375
+
+read_id,sequence,alignment_percentage,start_position,variation_type,variation_position
+fasta_read_exact,AGCTTAGCTA,100,0,none,-1
+fasta_read_exact_reverse,TAGCTAAGCT,100,4,none,-1
+fasta_read_mutation_middle,AGCTTGGCTA,16.6667,0,error,1
+fasta_read_mutation_end,AGCTTAGCTG,83.3333,0,mutation,5
+fasta_read_mutation_start,TGCTTAGCTA,83.3333,0,mutation,0
+fasta_read_partial_match,GCTTAGCT,100,1,none,-1
+fasta_read_inexistent,TTGGAACCCT,0,-1,none,0
+fastq_read_missing_first_char,AGCTTAGCTA,100,0,none,-1
+fastq_read_exact,AGCTTAGCTA,100,0,none,-1
+fastq_read_exact_reverse,TAGCTAAGCT,100,4,none,-1
+fastq_read_mutation_middle,AGCTTGGCTA,16.6667,0,error,1
+fastq_read_mutation_end,AGCTTAGCTG,83.3333,0,mutation,5
+fastq_read_mutation_start,TGCTTAGCTA,83.3333,0,mutation,0
+fastq_read_partial_match,GCTTAGCT,100,1,none,-1
+fastq_read_error,AGCXTAGCTA,33.3333,0,error,0
+fastq_read_inexistent,TTGGAACCCT,0,-1,none,0
