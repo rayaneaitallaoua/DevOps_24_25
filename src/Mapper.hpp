@@ -57,6 +57,7 @@ private:
     std::vector<Sequence> reads;
     std::unordered_map<std::string, std::vector<int>> mappings;
     std::unordered_map<std::string, std::string> strandInfo;
+    std::unordered_map<std::string, std::string> variations;
 };
 
 #endif
