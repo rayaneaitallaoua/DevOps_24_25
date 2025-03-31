@@ -12,8 +12,13 @@
 #include <unordered_map>
 #include <map>
 #include <algorithm>
+#include <numeric>
 
 Mapper::Mapper(int k, int min_hits) : k(k), min_hits(min_hits), genomeIndex(k) {}
+
+std::vector<Sequence> Mapper::getReads() const {
+    return reads;
+}
 
 void Mapper::loadReference(const std::string& filename) {
     ReadFasta fastaReader(filename);
@@ -32,6 +37,7 @@ void Mapper::loadReadsFromDirectory(const std::string& dirPath) {
 
     for (const auto& file : files) {
         std::string format = detectFileFormat(file);
+        std::cout << "Fichier : " << file << " | Format détecté : " << format << "\n";
 
         if (format == "fasta") {
             ReadFasta fastaReader(file);
@@ -79,6 +85,50 @@ void Mapper::exportMappingsToCSV(const std::string& filename) const {
     // Écriture des paramètres d'analyse
     out << "k-mer size," << k << "\n";
     out << "minimum hits," << min_hits << "\n\n";
+
+    // Statistiques globales
+    int total_reads = static_cast<int>(reads.size());
+    int mapped_reads = 0;
+    std::vector<int> qualities_all, qualities_mapped;
+
+    for (const auto& read : reads) {
+
+        const std::string& id = read.getId();
+        if (mappingResults.find(id) != mappingResults.end() && mappingResults.at(id).aligned) {
+            mapped_reads++;
+            if (!read.getQuality().empty()) {
+                qualities_mapped.push_back(medianQuality(read.getQuality()));
+            }
+        }
+        if (!read.getQuality().empty()) {
+            qualities_all.push_back(medianQuality(read.getQuality()));
+        }
+    }
+
+    int unmapped_reads = total_reads - mapped_reads;
+    double mapped_percent = total_reads > 0 ? 100.0 * mapped_reads / total_reads : 0.0;
+    double unmapped_percent = total_reads > 0 ? 100.0 * unmapped_reads / total_reads : 0.0;
+
+    out << "total reads," << total_reads << "\n";
+    out << "mapped reads," << mapped_reads << "," << mapped_percent << "%\n";
+    out << "unmapped reads," << unmapped_reads << "," << unmapped_percent << "%\n";
+
+    // Statistiques de qualité si FASTQ
+    if (!qualities_all.empty()) {
+        std::sort(qualities_all.begin(), qualities_all.end());
+        std::sort(qualities_mapped.begin(), qualities_mapped.end());
+
+        int median_all = qualities_all[qualities_all.size() / 2];
+        int median_mapped = qualities_mapped.empty() ? -1 : qualities_mapped[qualities_mapped.size() / 2];
+        double mean_mapped = qualities_mapped.empty() ? 0.0 :
+            std::accumulate(qualities_mapped.begin(), qualities_mapped.end(), 0.0) / qualities_mapped.size();
+
+        out << "median read quality (all reads)," << median_all << "\n";
+        out << "median read quality (mapped reads)," << median_mapped << "\n";
+        out << "mean read quality (mapped reads)," << mean_mapped << "\n";
+    }
+
+    out << "\n";
 
     // En-tête du CSV
     out << "read_id,sequence,alignment_percentage,start_position,variation_type,variation_position\n";

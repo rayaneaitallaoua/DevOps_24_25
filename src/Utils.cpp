@@ -52,3 +52,10 @@ std::string reverseComplement(const std::string& seq) {
     }
     return rc;
 }
+
+int medianQuality(const std::string& quality) {
+    std::vector<int> scores;
+    for (char c : quality) scores.push_back(static_cast<int>(c) - 33); // ASCII → Phred+33
+    std::sort(scores.begin(), scores.end());
+    return scores[scores.size() / 2];
+}

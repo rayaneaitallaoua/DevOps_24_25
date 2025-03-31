@@ -30,4 +30,6 @@ std::string detectFileFormat(const std::string& filename);
  */
 std::string reverseComplement(const std::string& seq);
 
+int medianQuality(const std::string& quality);
+
 #endif

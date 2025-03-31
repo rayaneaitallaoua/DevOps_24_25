@@ -20,6 +20,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Loading reads from directory...\n";
     mapper.loadReadsFromDirectory(readsDir);
+    std::cout << "Nombre de reads chargés : " << mapper.getReads().size() << "\n";
 
     std::cout << "Mapping reads...\n";
     mapper.mapReads();

@@ -84,6 +84,12 @@ public:
      */
     void exportMappingsToCSV(const std::string& filename) const;
 
+    /**
+    * @brief Retourne la liste des reads chargés
+    * @return Vecteur de reads
+    */
+    std::vector<Sequence> getReads() const;
+
 private:
     int k;    /**< Taille des k-mers utilisés */
     int min_hits;  /**< Seuil de k-mers alignés requis pour valider un mapping */
