@@ -32,7 +32,7 @@ void ReadFasta::load() {
     while (std::getline(file, line)) {
         if (line.empty()) continue;
 
-        if (line[0] == '>') {
+        if (line[0] == '>'||line[0] == ';') {
             if (!seq_id.empty()) {
                 if (valid) {
                     sequences.emplace_back(seq_id, sequence);
