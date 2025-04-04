@@ -64,9 +64,26 @@ public:
     void mapReads();
 
     /**
-     * @brief Analyse fine d'un read : positionnement de tous ses k-mers et diagnostic de variation.
-     * @param read Le read à analyser
-     * @return Un objet MappingResult contenant les données d'interprétation
+     * @brief Analyse un read pour déterminer sa position la plus probable dans le génome de référence.
+     *
+     * Cette fonction implémente une stratégie de mapping basée sur les k-mers.
+     * Pour chaque k-mer extrait du read, on récupère ses positions d'apparition dans l'index du génome.
+     * À partir de ces positions, on déduit les positions potentielles de début du read complet
+     * en tenant compte de l'offset du k-mer, et on attribue un vote à chacune de ces positions.
+     *
+     * Le système de votes permet d'estimer, par consensus, la position la plus probable du read dans le génome :
+     * plus une position reçoit de votes (soutien de plusieurs k-mers alignés de manière cohérente), plus elle est crédible.
+     *
+     * Le mapping est également effectué sur le brin complémentaire inverse si nécessaire.
+     * Le strand dominant est conservé sauf incohérence détectée.
+     *
+     * Une variation est annotée dans le résultat si :
+     *   - moins de 50% des k-mers ont pu être alignés : erreur probable ("error"),
+     *   - entre 50% et 100% des k-mers alignés : variation locale possible ("mutation").
+     *
+     * @param read L'objet Sequence représentant le read à analyser.
+     * @return Un objet MappingResult contenant la position estimée, le brin, les indices des k-mers alignés,
+     *         ainsi qu'un indicateur d'alignement réussi et un éventuel type de variation détectée.
      */
     MappingResult analyzeRead(const Sequence& read);
 

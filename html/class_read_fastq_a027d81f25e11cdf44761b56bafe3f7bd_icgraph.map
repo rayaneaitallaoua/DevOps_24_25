@@ -1,0 +1,5 @@
+<map id="ReadFastq::load" name="ReadFastq::load">
+<area shape="rect" id="Node000001" title="Charge les reads valides depuis le fichier." alt="" coords="271,5,388,31"/>
+<area shape="rect" id="Node000002" href="$class_mapper.html#a4c710ffe48a351b6171bf3e2e36a3d48" title="Charge tous les reads valides à partir d&#39;un répertoire contenant des fichiers FASTA/FASTQ." alt="" coords="5,5,223,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,21,223,21,223,16,255,16"/>
+</map>

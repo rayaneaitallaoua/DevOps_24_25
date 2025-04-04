@@ -1,0 +1,7 @@
+<map id="Sequence::getSequence" name="Sequence::getSequence">
+<area shape="rect" id="Node000001" title="Retourne la séquence nucléotidique." alt="" coords="385,5,548,31"/>
+<area shape="rect" id="Node000002" href="$class_mapper.html#af826cf3c91fdf6db5066bbba64e8a5b7" title="Analyse un read pour déterminer sa position la plus probable dans le génome de référence." alt="" coords="189,5,337,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="369,21,337,21,337,16,369,16"/>
+<area shape="rect" id="Node000003" href="$class_mapper.html#adb7060c80c71160c3335fcabcef1e566" title="Effectue le mapping de tous les reads valides sur le génome indexé." alt="" coords="5,5,141,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,21,141,21,141,16,173,16"/>
+</map>

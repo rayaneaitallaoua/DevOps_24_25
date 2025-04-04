@@ -1,0 +1,19 @@
+<map id="src/Mapper.hpp" name="src/Mapper.hpp">
+<area shape="rect" id="Node000001" title="Déclaration de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="139,5,249,31"/>
+<area shape="rect" id="Node000002" href="$_kmer_index_8hpp.html" title="Déclaration de la classe KmerIndex pour l&#39;indexation de k&#45;mers dans un génome." alt="" coords="139,79,248,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,31,196,63,191,63,191,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,116,178"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="178,34,150,54,121,81,97,111,77,141,72,138,92,108,117,77,146,50,174,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="148,153,205,178"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="174,34,149,53,130,80,127,96,131,111,152,140,148,144,126,114,122,96,125,78,146,50,171,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="259,153,312,178"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="214,29,239,50,263,78,277,107,284,137,279,138,272,109,258,80,235,54,211,34"/>
+<area shape="rect" id="Node000006" href="$_sequence_8hpp.html" title="Déclaration de la classe Sequence pour représenter un read (FASTA ou FASTQ)." alt="" coords="323,79,427,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="226,29,331,70,329,75,224,34"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="172,108,98,147,95,143,170,103"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="194,106,186,138,180,137,188,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="211,103,260,141,257,145,208,107"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="362,107,314,145,311,141,358,103"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="340,153,411,178"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="378,105,378,137,372,137,372,105"/>
+</map>

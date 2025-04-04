@@ -1,0 +1,7 @@
+<map id="src/Sequence.hpp" name="src/Sequence.hpp">
+<area shape="rect" id="Node000001" title="Déclaration de la classe Sequence pour représenter un read (FASTA ou FASTQ)." alt="" coords="12,5,138,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,59,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,33,49,67,45,64,65,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,79,154,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,30,105,64,101,67,80,33"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Mapper::analyzeRead" name="Mapper::analyzeRead">
+<area shape="rect" id="Node000001" title="Analyse un read pour déterminer sa position la plus probable dans le génome de référence." alt="" coords="189,5,337,31"/>
+<area shape="rect" id="Node000002" href="$class_mapper.html#adb7060c80c71160c3335fcabcef1e566" title="Effectue le mapping de tous les reads valides sur le génome indexé." alt="" coords="5,5,141,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,21,141,21,141,16,173,16"/>
+</map>
