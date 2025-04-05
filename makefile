@@ -9,7 +9,7 @@ TARGET = my_program
 SRC_DIR = src
 
 # Dossier des entêtes
-INC_DIR = include
+INC_DIR = src
 
 # Liste automatique des fichiers source (.cpp)
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
