@@ -193,6 +193,10 @@ MappingResult Mapper::analyzeRead(const Sequence& read) {
     }
 
     if (!positionVotes.empty()) {
+        /**
+        * lambda fonction utilisée pour comparer deux paires (clé, valeur) (ici, a et b).
+        * Elle retourne true si a.second < b.second, ce qui signifie qu’on veut le plus grand nombre de votes
+        */
         auto best = std::max_element(positionVotes.begin(), positionVotes.end(),
             [](const auto& a, const auto& b) {
                 return a.second < b.second;
