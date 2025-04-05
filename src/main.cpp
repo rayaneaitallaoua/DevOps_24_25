@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 4) {
-        std::cerr << "Usage: " << argv[0] << " <reference.fasta> <reads_directory> <k> <min_hits>\n";
+        std::cerr << "Usage: " << argv[0] << " <reference.fasta> <reads_directory> <k-mer size>\n";
         return 1;
     }
 
