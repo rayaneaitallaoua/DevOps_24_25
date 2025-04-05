@@ -1,9 +1,0 @@
-# ninja log v6
-14	1040	1742228570459184575	CMakeFiles/DevOps_mine.dir/src/Sequence.cpp.o	4eb619efa8fcaae4
-12	1043	1742228570457054058	CMakeFiles/DevOps_mine.dir/src/main.cpp.o	7b19581805a72dbe
-14	1079	1742228570458902287	CMakeFiles/DevOps_mine.dir/src/ReadFastq.cpp.o	d2b10869381a7866
-13	1079	1742228570458516375	CMakeFiles/DevOps_mine.dir/src/ReadFasta.cpp.o	7d5d2b82055ddd7d
-1080	1224	1742228571524716793	DevOps_mine	b9a1ba14ed513791
-7	636	1742807988115899112	CMakeFiles/DevOps_mine.dir/src/Sequence.cpp.o	4eb619efa8fcaae4
-7	668	1742807988115583326	CMakeFiles/DevOps_mine.dir/src/ReadFasta.cpp.o	7d5d2b82055ddd7d
-7	669	1742807988115760281	CMakeFiles/DevOps_mine.dir/src/ReadFastq.cpp.o	d2b10869381a7866
