@@ -42,9 +42,8 @@ public:
     /**
      * @brief Constructeur de la classe Mapper
      * @param k taille des k-mers à utiliser pour l'indexation
-     * @param min_hits nombre minimum de k-mers requis pour considérer un alignement comme valide
      */
-    Mapper(int k, int min_hits);
+    Mapper(int k);
 
     /**
      * @brief Charge un fichier FASTA et indexe le génome pour les k-mers.
@@ -109,7 +108,6 @@ public:
 
 private:
     int k;    /**< Taille des k-mers utilisés */
-    int min_hits;  /**< Seuil de k-mers alignés requis pour valider un mapping */
     KmerIndex genomeIndex;  /**< Index k-mer construit à partir du génome de référence */
     std::vector<Sequence> reads;  /**< Reads valides extraits des fichiers FASTA/FASTQ */
     std::unordered_map<std::string, std::vector<int>> mappings;  /**< Positions de mapping pour chaque read */

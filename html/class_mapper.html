@@ -116,9 +116,9 @@ $(function(){initNavTree('class_mapper.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab7e70adff56a7c456f4bf78707d2ca50" id="r_ab7e70adff56a7c456f4bf78707d2ca50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7e70adff56a7c456f4bf78707d2ca50">Mapper</a> (int k, int min_hits)</td></tr>
-<tr class="memdesc:ab7e70adff56a7c456f4bf78707d2ca50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_mapper.html" title="Effectue le mapping de séquences (reads) sur un génome indexé avec des k-mers.">Mapper</a>.  <br /></td></tr>
-<tr class="separator:ab7e70adff56a7c456f4bf78707d2ca50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95e80811d7569101e37d3ec72777f6ae" id="r_a95e80811d7569101e37d3ec72777f6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95e80811d7569101e37d3ec72777f6ae">Mapper</a> (int k)</td></tr>
+<tr class="memdesc:a95e80811d7569101e37d3ec72777f6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_mapper.html" title="Effectue le mapping de séquences (reads) sur un génome indexé avec des k-mers.">Mapper</a>.  <br /></td></tr>
+<tr class="separator:a95e80811d7569101e37d3ec72777f6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeab5b7b7082c11dd6fab0da8fe89355d" id="r_aeab5b7b7082c11dd6fab0da8fe89355d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeab5b7b7082c11dd6fab0da8fe89355d">loadReference</a> (const std::string &amp;filename)</td></tr>
 <tr class="memdesc:aeab5b7b7082c11dd6fab0da8fe89355d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge un fichier FASTA et indexe le génome pour les k-mers.  <br /></td></tr>
 <tr class="separator:aeab5b7b7082c11dd6fab0da8fe89355d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,8 +153,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>mapReads</b> ()</td><
 <li>l'affichage ou l'export des résultats </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab7e70adff56a7c456f4bf78707d2ca50" name="ab7e70adff56a7c456f4bf78707d2ca50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7e70adff56a7c456f4bf78707d2ca50">&#9670;&#160;</a></span>Mapper()</h2>
+<a id="a95e80811d7569101e37d3ec72777f6ae" name="a95e80811d7569101e37d3ec72777f6ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e80811d7569101e37d3ec72777f6ae">&#9670;&#160;</a></span>Mapper()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,12 +162,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>mapReads</b> ()</td><
         <tr>
           <td class="memname">Mapper::Mapper </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>min_hits</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -176,7 +172,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>mapReads</b> ()</td><
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">k</td><td>taille des k-mers à utiliser pour l'indexation </td></tr>
-    <tr><td class="paramname">min_hits</td><td>nombre minimum de k-mers requis pour considérer un alignement comme valide </td></tr>
   </table>
   </dd>
 </dl>
@@ -214,6 +209,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>mapReads</b> ()</td><
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Un objet <a class="el" href="struct_mapping_result.html" title="Contient les résultats d&#39;analyse d&#39;un read : position, brin, cohérence et variation potentielle.">MappingResult</a> contenant la position estimée, le brin, les indices des k-mers alignés, ainsi qu'un indicateur d'alignement réussi et un éventuel type de variation détectée. </dd></dl>
+<p>lambda fonction utilisée pour comparer deux paires (clé, valeur) (ici, a et b). Elle retourne true si a.second &lt; b.second, ce qui signifie qu’on veut le plus grand nombre de votes</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

@@ -14,7 +14,7 @@
 #include <algorithm>
 #include <numeric>
 
-Mapper::Mapper(int k, int min_hits) : k(k), min_hits(min_hits), genomeIndex(k) {}
+Mapper::Mapper(int k) : k(k), genomeIndex(k) {}
 
 std::vector<Sequence> Mapper::getReads() const {
     return reads;
@@ -84,7 +84,6 @@ void Mapper::exportMappingsToCSV(const std::string& filename) const {
 
     // Écriture des paramètres d'analyse
     out << "k-mer size," << k << "\n";
-    out << "minimum hits," << min_hits << "\n\n";
 
     // Statistiques globales
     int total_reads = static_cast<int>(reads.size());

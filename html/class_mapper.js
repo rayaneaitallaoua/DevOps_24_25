@@ -1,6 +1,6 @@
 var class_mapper =
 [
-    [ "Mapper", "class_mapper.html#ab7e70adff56a7c456f4bf78707d2ca50", null ],
+    [ "Mapper", "class_mapper.html#a95e80811d7569101e37d3ec72777f6ae", null ],
     [ "analyzeRead", "class_mapper.html#af826cf3c91fdf6db5066bbba64e8a5b7", null ],
     [ "exportMappingsToCSV", "class_mapper.html#a47f38cf861bbcdf731d4d7e93bde5355", null ],
     [ "getGenomeIndex", "class_mapper.html#a22507bf72eb90c880282e4d0cc4bdf02", null ],

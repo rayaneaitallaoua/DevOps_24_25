@@ -11,9 +11,8 @@ int main(int argc, char* argv[]) {
     std::string refPath = argv[1];
     std::string readsDir = argv[2];
     int k = std::stoi(argv[3]);
-    int min_hits = std::stoi(argv[4]);
 
-    Mapper mapper(k, min_hits);
+    Mapper mapper(k);
 
     std::cout << "Loading reference genome...\n";
     mapper.loadReference(refPath);
