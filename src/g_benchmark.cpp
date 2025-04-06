@@ -72,4 +72,24 @@ BENCHMARK(BM_IndexGenome)
     ->Iterations(5) //5 itérations pour affiner le résultat
     ->Unit(benchmark::kMillisecond); //result plus lisible
 
+/**
+ * @brief Benchmark de KmerIndex::searchKmerWithStrand() sur un génome indexé.
+ *        On teste la recherche d'un k-mer fréquent pour mesurer la latence.
+ */
+static void BM_SearchKmerWithStrand(benchmark::State& state) {
+    std::string genome = loadGenomeFromFasta("./e_coli_genome.fasta");
+    KmerIndex index(15);
+    index.indexGenome(genome);
+    std::string strand;
+    std::string kmer = genome.substr(1000, 15);  // Un k-mer connu
+
+    for (auto _ : state) {
+        benchmark::DoNotOptimize(index.searchKmerWithStrand(kmer, strand));
+        benchmark::ClobberMemory();
+    }
+}
+BENCHMARK(BM_SearchKmerWithStrand)
+    ->Iterations(5)
+    ->Unit(benchmark::kMicrosecond);
+
 BENCHMARK_MAIN();
