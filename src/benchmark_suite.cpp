@@ -12,3 +12,5 @@ static void BM_ReverseComplement(benchmark::State& state) {
     }
 }
 BENCHMARK(BM_ReverseComplement);
+
+BENCHMARK_MAIN();
