@@ -2,11 +2,14 @@
 #include "Mapper.hpp"
 #include "ReadFasta.hpp"
 #include <fstream>
+#include <iostream>
 
 /**
  * @file g_benchmark.cpp
  * @brief Benchmark de la fonction Mapper::analyzeRead() avec un vrai génome de référence (E. coli).
  */
+
+std::string genome_path = "./e_coli_genome.fasta";  // Par défaut
 
 /**
  * @brief Lit la séquence génomique depuis un fichier FASTA (première séquence uniquement).
@@ -24,14 +27,14 @@ std::string loadGenomeFromFasta(const std::string& filepath) {
 }
 
 /**
- * @brief Benchmark de Mapper::analyzeRead() en utilisant un génome réel (E. coli)
+ * @brief Benchmark de Mapper::analyzeRead() en utilisant le génome passé en argv
  *        et un petit ensemble de reads simulés issus du génome.
  */
 static void BM_MapReads(benchmark::State& state) {
-    // Chargement du génome de référence depuis un fichier FASTA réel (E. coli)
-    std::string genome = loadGenomeFromFasta("./e_coli_genome.fasta");
+    std::string genome = loadGenomeFromFasta(genome_path);
 
     // Simulation de quelques reads à partir de la séquence du génome (reads parfaits)
+
     std::vector<Sequence> reads = {
         Sequence("read1", genome.substr(1000, 50)),
         Sequence("read2", genome.substr(2000, 50)),
@@ -60,7 +63,7 @@ BENCHMARK(BM_MapReads)
  *        Permet d'évaluer la rapidité de l'indexation des k-mers.
  */
 static void BM_IndexGenome(benchmark::State& state) {
-    std::string genome = loadGenomeFromFasta("./e_coli_genome.fasta");
+    std::string genome = loadGenomeFromFasta(genome_path);
 
     for (auto _ : state) {
         KmerIndex index(15);  // k = 15
@@ -77,7 +80,7 @@ BENCHMARK(BM_IndexGenome)
  *        On teste la recherche d'un k-mer fréquent pour mesurer la latence.
  */
 static void BM_SearchKmerWithStrand(benchmark::State& state) {
-    std::string genome = loadGenomeFromFasta("./e_coli_genome.fasta");
+    std::string genome = loadGenomeFromFasta(genome_path);
     KmerIndex index(15);
     index.indexGenome(genome);
     std::string strand;
@@ -92,4 +95,17 @@ BENCHMARK(BM_SearchKmerWithStrand)
     ->Iterations(5)
     ->Unit(benchmark::kMicrosecond);
 
-BENCHMARK_MAIN();
+// === MAIN MODIFIÉ POUR PRENDRE UN FICHIER EN ARGUMENT ===
+int main(int argc, char** argv) {
+    if (argc > 1) {
+        genome_path = argv[1];
+        std::cout << "Utilisation du fichier génome : " << genome_path << std::endl;
+    } else {
+        std::cerr << "[Info] Aucun fichier FASTA passé. Utilisation du génome par défaut : " << genome_path << std::endl;
+    }
+
+    benchmark::Initialize(&argc, argv);
+    benchmark::RunSpecifiedBenchmarks();
+    benchmark::Shutdown();
+    return 0;
+}
