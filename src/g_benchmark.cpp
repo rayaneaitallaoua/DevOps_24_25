@@ -9,7 +9,7 @@
  * @brief Benchmark de la fonction Mapper::analyzeRead() avec un vrai génome de référence (E. coli).
  */
 
-std::string genome_path = "./e_coli_genome.fasta";  // Par défaut
+std::string genome_path = "./genomes/e_coli.fasta";  // Par défaut
 
 /**
  * @brief Lit la séquence génomique depuis un fichier FASTA (première séquence uniquement).
