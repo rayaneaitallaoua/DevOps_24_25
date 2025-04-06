@@ -1,6 +1,4 @@
-k-mer size,2
-minimum hits,5
-
+k-mer size,5
 total reads,16
 mapped reads,16,100%
 unmapped reads,0,0%
@@ -9,19 +7,19 @@ median read quality (mapped reads),37
 mean read quality (mapped reads),36.8889
 
 read_id,sequence,alignment_percentage,start_position,variation_type,variation_position
-fasta_read_exact,AGCTTAGCTA,100,0,none,-1
-fasta_read_exact_reverse,TAGCTAAGCT,100,4,none,-1
-fasta_read_mutation_middle,AGCTTGGCTA,88.8889,0,mutation,4
-fasta_read_mutation_end,AGCTTAGCTG,88.8889,0,mutation,8
-fasta_read_mutation_start,TGCTTAGCTA,88.8889,0,mutation,0
-fasta_read_partial_match,GCTTAGCT,100,1,none,-1
-fasta_read_inexistent,TTGGAACCCT,77.7778,85,mutation,1
-fastq_read_missing_first_char,AGCTTAGCTA,100,0,none,-1
-fastq_read_exact,AGCTTAGCTA,100,0,none,-1
-fastq_read_exact_reverse,TAGCTAAGCT,100,4,none,-1
-fastq_read_mutation_middle,AGCTTGGCTA,88.8889,0,mutation,4
-fastq_read_mutation_end,AGCTTAGCTG,88.8889,0,mutation,8
-fastq_read_mutation_start,TGCTTAGCTA,88.8889,0,mutation,0
-fastq_read_partial_match,GCTTAGCT,100,1,none,-1
-fastq_read_error,AGCXTAGCTA,77.7778,0,mutation,2
-fastq_read_inexistent,TTGGAACCCT,77.7778,85,mutation,1
+fasta_read_exact,GCTTTTCATTC,100,1,none,-1
+fasta_read_exact_reverse,TAGCTAAGCT,100,89025,none,-1
+fasta_read_mutation_middle,GCTTTCCATTC,100,4483481,none,-1
+fasta_read_mutation_end,GCTTTTCATTA,100,1653906,none,-1
+fasta_read_mutation_start,TGTTTTCATTC,100,2270617,none,-1
+fasta_read_partial_match,GCTTTTCAGGA,100,2038204,none,-1
+fasta_read_inexistent,TATATATATATATTA,100,656257,none,-1
+fastq_read_missing_first_char,AGCTTAGCTA,100,167787,none,-1
+fastq_read_exact,AGCTTAGCTA,100,167787,none,-1
+fastq_read_exact_reverse,TAGCTAAGCT,100,89025,none,-1
+fastq_read_mutation_middle,AGCTTGGCTA,100,423391,none,-1
+fastq_read_mutation_end,AGCTTAGCTG,100,292727,none,-1
+fastq_read_mutation_start,TGCTTAGCTA,100,167787,none,-1
+fastq_read_partial_match,GCTTAGCT,100,167788,none,-1
+fastq_read_error,AGCXTAGCTA,33.3333,24335,error,0
+fastq_read_inexistent,TTGGAACCCT,100,1031649,none,-1
