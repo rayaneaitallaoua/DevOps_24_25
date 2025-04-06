@@ -55,7 +55,7 @@ static void BM_MapReads(benchmark::State& state) {
     }
 }
 BENCHMARK(BM_MapReads)
-    ->Iterations(5) //5 itérations pour affiner le résultat
+    ->Iterations(1) //1 itération pour rapidité de benchmarking
     ->Unit(benchmark::kMillisecond); //result plus lisible
 
 /**
@@ -72,7 +72,7 @@ static void BM_IndexGenome(benchmark::State& state) {
     }
 }
 BENCHMARK(BM_IndexGenome)
-    ->Iterations(5) //5 itérations pour affiner le résultat
+    ->Iterations(1) //1 itération pour rapidité de benchmarking
     ->Unit(benchmark::kMillisecond); //result plus lisible
 
 /**
@@ -92,7 +92,7 @@ static void BM_SearchKmerWithStrand(benchmark::State& state) {
     }
 }
 BENCHMARK(BM_SearchKmerWithStrand)
-    ->Iterations(5)
+    ->Iterations(1) //1 itération pour rapidité de benchmarking
     ->Unit(benchmark::kMicrosecond);
 
 // === MAIN MODIFIÉ POUR PRENDRE UN FICHIER EN ARGUMENT ===
