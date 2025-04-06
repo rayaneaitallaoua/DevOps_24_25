@@ -49,7 +49,8 @@ void ReadFasta::load() {
                 continue;
             }
             for (char c : line) {
-                if (c != 'A' && c != 'C' && c != 'G' && c != 'T') {
+                char upper = std::toupper(c);  // Convertit en majuscule
+                if (upper != 'A' && upper != 'C' && upper != 'G' && upper != 'T') {
                     valid = false;
                 }
             }
