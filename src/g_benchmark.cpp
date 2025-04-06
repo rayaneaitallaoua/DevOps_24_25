@@ -29,7 +29,7 @@ std::string loadGenomeFromFasta(const std::string& filepath) {
  */
 static void BM_MapReads(benchmark::State& state) {
     // Chargement du génome de référence depuis un fichier FASTA réel (E. coli)
-    std::string genome = loadGenomeFromFasta("../e_coli_genome.fasta");
+    std::string genome = loadGenomeFromFasta("./e_coli_genome.fasta");
 
     // Simulation de quelques reads à partir de la séquence du génome (reads parfaits)
     std::vector<Sequence> reads = {
@@ -51,6 +51,25 @@ static void BM_MapReads(benchmark::State& state) {
         benchmark::ClobberMemory();  // Force la prise en compte mémoire par le benchmark
     }
 }
-BENCHMARK(BM_MapReads);  // Enregistrement de la fonction de benchmark
+BENCHMARK(BM_MapReads)
+    ->Iterations(5) //5 itérations pour affiner le résultat
+    ->Unit(benchmark::kMillisecond); //result plus lisible
 
-BENCHMARK_MAIN();  // Point d'entrée principal des benchmarks
+/**
+ * @brief Benchmark de KmerIndex::indexGenome() sur le génome E. coli
+ *        Permet d'évaluer la rapidité de l'indexation des k-mers.
+ */
+static void BM_IndexGenome(benchmark::State& state) {
+    std::string genome = loadGenomeFromFasta("./e_coli_genome.fasta");
+
+    for (auto _ : state) {
+        KmerIndex index(15);  // k = 15
+        index.indexGenome(genome);  // Indexation du génome
+        benchmark::ClobberMemory();
+    }
+}
+BENCHMARK(BM_IndexGenome)
+    ->Iterations(5) //5 itérations pour affiner le résultat
+    ->Unit(benchmark::kMillisecond); //result plus lisible
+
+BENCHMARK_MAIN();
