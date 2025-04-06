@@ -4,7 +4,7 @@
 #include <fstream>
 
 /**
- * @file benchmark_mapreads.cpp
+ * @file g_benchmark.cpp
  * @brief Benchmark de la fonction Mapper::analyzeRead() avec un vrai génome de référence (E. coli).
  */
 
