@@ -2,38 +2,34 @@
 # -------------------------------------
 # Ce fichier remplace CMake pour la compilation manuelle
 
-# Nom de l'exécutable final
-TARGET = my_program
-
-# Dossier des sources
+# === Variables ===
+CXX = g++
+CXXFLAGS = -std=c++17 -O2 -I/opt/homebrew/include
+LDFLAGS = -L/opt/homebrew/lib -lbenchmark -lpthread
 SRC_DIR = src
 
-# Dossier des entêtes
-INC_DIR = src
+# === Fichiers spécifiques ===
+MAIN_SRC = $(SRC_DIR)/main.cpp
+BENCH_SRC = $(SRC_DIR)/g_benchmark.cpp
+OTHER_SRCS = $(filter-out $(MAIN_SRC) $(BENCH_SRC), $(wildcard $(SRC_DIR)/*.cpp))
 
-# Liste automatique des fichiers source (.cpp)
-SRCS = $(wildcard $(SRC_DIR)/*.cpp)
+# === Exécutables ===
+MAIN_EXEC = my_program
+BENCH_EXEC = g_benchmark
 
-# Remplace chaque fichier .cpp par un .o dans le dossier courant
-OBJS = $(SRCS:.cpp=.o)
+# === Cible par défaut ===
+all: $(MAIN_EXEC) $(BENCH_EXEC)
 
-# Compilateur et options
-CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17 -I$(INC_DIR)
+# === Compilation du programme principal ===
+$(MAIN_EXEC): $(MAIN_SRC) $(OTHER_SRCS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-# Règle principale
-all: $(TARGET)
+# === Compilation du benchmark Google Benchmark ===
+$(BENCH_EXEC): $(BENCH_SRC) $(OTHER_SRCS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-# Lier les objets pour créer l'exécutable
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-# Compiler chaque fichier source en objet
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-# Nettoyage
+# === Nettoyage ===
 clean:
-	rm -f $(SRC_DIR)/*.o $(TARGET)
+	rm -f $(MAIN_EXEC) $(BENCH_EXEC) $(SRC_DIR)/*.o mapping_results.csv
 
 .PHONY: all clean
