@@ -13,7 +13,7 @@ echo "" >> "$OUTPUT_FILE"
 # === Boucle sur chaque fichier FASTA ===
 for genome in "$GENOME_DIR"/*.fasta; do
   echo "Benchmarking: $genome"
-  
+
   echo "=============================" >> "$OUTPUT_FILE"
   echo "Fichier : $genome" >> "$OUTPUT_FILE"
   echo "Taille : $(grep -v '^>' "$genome" | tr -d -c 'ACGTacgt' | wc -c) bp" >> "$OUTPUT_FILE"
