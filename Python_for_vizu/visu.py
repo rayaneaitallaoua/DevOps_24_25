@@ -103,3 +103,23 @@ plt.legend()
 plt.tight_layout()
 plt.savefig("comparaison_temps_loglog.png", dpi=300)
 plt.show()
+
+# ----------------------------
+# Plot 4: Memory usage vs genome size (log-scale line plot)
+# ----------------------------
+plt.figure(figsize=(10, 6))
+
+# Line plot: memory usage by genome size
+plt.plot(genome_sizes, peak_memory, marker='o', linestyle='-', color='teal', label="Mémoire pic")
+
+plt.title("Mémoire maximale utilisée en fonction de la taille du génome", fontsize=14)
+plt.xlabel("Taille du génome (bp)", fontsize=12)
+plt.ylabel("Mémoire pic (Mo)", fontsize=12)
+plt.xscale('log')  # Taille du génome en échelle log
+plt.yscale('log')  # Mémoire en échelle log
+plt.grid(True, which="both", linestyle='--', alpha=0.7)
+plt.legend()
+
+plt.tight_layout()
+plt.savefig("memoire_vs_taille_loglog.png", dpi=300)
+plt.show()
