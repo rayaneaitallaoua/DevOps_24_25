@@ -1,7 +1,9 @@
 <map id="src/KmerIndex.hpp" name="src/KmerIndex.hpp">
-<area shape="rect" id="Node000001" title="Déclaration de la classe KmerIndex pour l&#39;indexation de k&#45;mers dans un génome." alt="" coords="5,5,137,31"/>
-<area shape="rect" id="Node000002" href="$_mapper_8hpp.html" title="Déclaration de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="16,79,126,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,46,74,79,68,79,68,46"/>
-<area shape="rect" id="Node000003" href="$_mapper_8cpp.html" title="Implémentation de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="16,153,126,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="74,120,74,152,68,152,68,120"/>
+<area shape="rect" id="Node000001" title="Déclaration de la classe KmerIndex pour l&#39;indexation de k&#45;mers dans un génome." alt="" coords="71,5,202,31"/>
+<area shape="rect" id="Node000002" href="$_mapper_8hpp.html" title="Déclaration de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="81,79,192,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,46,139,79,134,79,134,46"/>
+<area shape="rect" id="Node000003" href="$_mapper_8cpp.html" title="Implémentation de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="5,153,116,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,117,75,154,71,150,111,114"/>
+<area shape="rect" id="Node000004" href="$g__benchmark_8cpp.html" title="Benchmark de la fonction Mapper::analyzeRead() avec un vrai génome de référence (E...." alt="" coords="139,153,286,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="162,114,202,150,198,154,159,117"/>
 </map>

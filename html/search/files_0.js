@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kmerindex_2ehpp_0',['KmerIndex.hpp',['../_kmer_index_8hpp.html',1,'']]]
+  ['g_5fbenchmark_2ecpp_0',['g_benchmark.cpp',['../g__benchmark_8cpp.html',1,'']]]
 ];

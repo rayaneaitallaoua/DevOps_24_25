@@ -1,5 +1,6 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
+    [ "g_benchmark.cpp", "g__benchmark_8cpp.html", "g__benchmark_8cpp" ],
     [ "KmerIndex.hpp", "_kmer_index_8hpp.html", "_kmer_index_8hpp" ],
     [ "Mapper.cpp", "_mapper_8cpp.html", null ],
     [ "Mapper.hpp", "_mapper_8hpp.html", "_mapper_8hpp" ],
