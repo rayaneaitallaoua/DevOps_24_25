@@ -72,10 +72,12 @@ doxygen
 ```
 
 La documentation HTML sera disponible dans le dossier `./doc/html/index.html`.
+
 ---
 
 ## Licence
 
 Ce projet est distribué sous la **licence CeCILL**, une licence libre conforme au droit français et compatible avec la GNU GPL.
+
 Le texte complet de la licence est disponible à l'adresse suivante :  
 <https://cecill.info/licences/Licence_CeCILL_V2.1-fr.html>
