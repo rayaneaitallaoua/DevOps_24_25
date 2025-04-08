@@ -1,51 +1,81 @@
-Ce fichier décrit le porjet dans ses grands lignes. et explique les différentes étapes à réaliser pour son installation
+# Projet de Développement Opérationnel Avancé 2025
 
-# Demo
-démo du prof pour UE HAU803I (DevOps)
+**Auteur** : Rayane Ayoub AIT ALLAOUA.
 
-les commandes basiques de git : 
-`git status`
-`git log`
-`git add`
-`git rm`
-`git diff`
+**Contexte** : Projet universitaire réalisé dans le cadre de l’UE HAU803I — Master Bioinformatique  
+**Sujet** : Développement d’un outil de mapping de reads génomiques sur un génome de référence
 
-Reminder: fix the names .H to .hpp mess in ReadFasta/q and sequence
+---
 
-Mon gameplan:
+## Objectifs du projet
 
-Semaine 1 : Développement de l’algorithme et de la structure de données
-1.	Jours 1-2 : Comprendre les fichiers FASTA/FASTQ
-•	Lire et comprendre la structure de ces fichiers.
-•	Écrire un code simple en C++ pour lire un fichier FASTA/FASTQ.
-2.	Jours 3-4 : Définir la structure de données pour l’indexation des k-mers
-•	Implémenter une table de hachage ou un suffix array pour stocker les positions des k-mers.
-•	Tester avec un petit génome et quelques reads.
-3.	Jours 5-6 : Implémenter l’algorithme de mapping
-•	Parcourir les reads, extraire les k-mers et les comparer avec la structure indexée.
-•	Prendre en compte les mutations et erreurs de séquençage.
-•	Générer un fichier de sortie avec les positions des reads.
-4.	Jour 7 : Débogage et tests initiaux
-•	Vérifier les performances sur un petit dataset.
+Ce projet a pour but d’implémenter un outil permettant :
 
-⸻
+- La lecture de fichiers au format FASTA et FASTQ
+- Le nettoyage et la validation des séquences lues
+- L’indexation d’un génome en k-mers
+- Le mapping des reads sur le génome de référence, avec gestion du brin complémentaire
+- L’affichage ou l’export des résultats d’alignement
 
-Semaine 2 : Optimisation, comparaison et rédaction
-5.	Jours 8-9 : Comparaison avec des outils existants (BWA, Bowtie, etc.)
-•	Lancer ton algorithme et comparer les résultats avec ceux d’outils connus.
-•	Noter les différences en termes de précision et de vitesse.
-6.	Jours 10-11 : Optimisation du code
-•	Améliorer la gestion de la mémoire et l’efficacité de la recherche.
-•	Vérifier la complexité spatiale et temporelle.
-7.	Jour 12 : Rédaction du rapport
-•	Expliquer tes choix d’algorithmes et de structures de données.
-•	Décrire les résultats obtenus et comparer avec les autres outils.
-8.	Jour 13 : Finalisation et préparation de la soutenance
-•	Préparer une présentation claire.
-•	Tester tes explications à l’oral.
-9.	Jour 14 : Vérifications finales
-•	Corriger d’éventuelles erreurs et améliorer la clarté du code.
+---
 
-To Do:
+## Compilation
 
-handle degenarted DNA alphabet: R N ...
+Le projet peut être compilé avec n’importe quel compilateur compatible C++17.
+
+```bash
+g++ -std=c++17 -o main main.cpp *.cpp
+```
+
+Un fichier `Makefile` est également fourni pour automatiser la compilation :
+
+```bash
+make
+```
+
+---
+
+## Utilisation
+
+Le programme s’utilise en ligne de commande :
+
+```bash
+./main <genome.fasta> <dossier_reads> <taille_kmer>
+```
+
+- `<genome.fasta>` : le génome de référence en format FASTA.
+- `<dossier_reads>` : chemin vers le dossier contenant les fichiers des reads
+- `<taille_kmer>` : taille des k-mers utilisés pour l’indexation
+
+---
+
+## Principaux composants du projet
+
+| Composant        | Description                                                               |
+|------------------|---------------------------------------------------------------------------|
+| `Sequence`       | Classe de base représentant une séquence biologique                       |
+| `ReadFasta`, `ReadFastq` | Lecture, validation et nettoyage des fichiers d’entrée                    |
+| `KmerIndex`      | Indexation du génome par k-mers                                           |
+| `Mapper`         | Algorithme de mapping basé sur un système de vote                         |
+| `Utils`          | Fonctions utilitaires (nettoyage, brin complément inverse, parsing, etc.) |
+
+---
+
+## Documentation
+
+La documentation est générée automatiquement avec Doxygen.
+
+Pour la générer :
+
+```bash
+doxygen
+```
+
+La documentation HTML sera disponible dans le dossier `./doc/html/index.html`.
+---
+
+## Licence
+
+Ce projet est distribué sous la **licence CeCILL**, une licence libre conforme au droit français et compatible avec la GNU GPL.
+Le texte complet de la licence est disponible à l'adresse suivante :  
+<https://cecill.info/licences/Licence_CeCILL_V2.1-fr.html>
