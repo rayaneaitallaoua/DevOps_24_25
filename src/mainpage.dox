@@ -18,7 +18,7 @@
  *
  * Exécution :
  * @code
- * ./main <genome de reference fasta / chemin> <dossier contenant les reads> <taille du kmer> <seuil de confiance>
+ * ./main <genome de reference fasta / chemin> <dossier contenant les reads> <taille du kmer>
  * @endcode
  *
  * @section files_section Fichiers Principaux
