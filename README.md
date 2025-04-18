@@ -1,33 +1,33 @@
-# Projet de Développement Opérationnel Avancé 2025
+# Advanced Operational Development Project 2025
 
-**Auteur** : Rayane Ayoub AIT ALLAOUA.
+**Author**: Rayane Ayoub AIT ALLAOUA.
 
-**Contexte** : Projet universitaire réalisé dans le cadre de l’UE HAU803I — Master Bioinformatique  
-**Sujet** : Développement d’un outil de mapping de reads génomiques sur un génome de référence
+**Context**: University project carried out as part of the HAU803I course — Bioinformatics Masters of the university of Montpellier
+**Subject**: Development of a read mapping tool on a reference genome
 
 ---
 
-## Objectifs du projet
+## Project Objectives
 
-Ce projet a pour but d’implémenter un outil permettant :
+The goal of this project is to implement a tool that allows:
 
-- La lecture de fichiers au format FASTA et FASTQ
-- Le nettoyage et la validation des séquences lues
-- L’indexation d’un génome en k-mers
-- Le mapping des reads sur le génome de référence, avec gestion du brin complémentaire
-- L’affichage ou l’export des résultats d’alignement
+- Reading files in FASTA and FASTQ formats
+- Cleaning and validating the read sequences
+- Indexing a genome using k-mers
+- Mapping reads to the reference genome, including reverse complement strand support
+- Displaying or exporting alignment results
 
 ---
 
 ## Compilation
 
-Le projet peut être compilé avec n’importe quel compilateur compatible C++17.
+The project can be compiled with any C++17 compatible compiler.
 
 ```bash
 g++ -std=c++17 -o main main.cpp *.cpp
 ```
 
-Un fichier `Makefile` est également fourni pour automatiser la compilation :
+A `Makefile` is also provided to automate the compilation:
 
 ```bash
 make
@@ -35,49 +35,49 @@ make
 
 ---
 
-## Utilisation
+## Usage
 
-Le programme s’utilise en ligne de commande :
+The program is used via the command line:
 
 ```bash
-./main <genome.fasta> <dossier_reads> <taille_kmer>
+./main <genome.fasta> <reads_folder> <kmer_size>
 ```
 
-- `<genome.fasta>` : le génome de référence en format FASTA.
-- `<dossier_reads>` : chemin vers le dossier contenant les fichiers des reads
-- `<taille_kmer>` : taille des k-mers utilisés pour l’indexation
+- `<genome.fasta>`: the reference genome in FASTA format.
+- `<reads_folder>`: path to the folder containing the reads files
+- `<kmer_size>`: size of the k-mers used for indexing
 
 ---
 
-## Principaux composants du projet
+## Main Components of the Project
 
-| Composant        | Description                                                               |
-|------------------|---------------------------------------------------------------------------|
-| `Sequence`       | Classe de base représentant une séquence biologique                       |
-| `ReadFasta`, `ReadFastq` | Lecture, validation et nettoyage des fichiers d’entrée                    |
-| `KmerIndex`      | Indexation du génome par k-mers                                           |
-| `Mapper`         | Algorithme de mapping basé sur un système de vote                         |
-| `Utils`          | Fonctions utilitaires (nettoyage, brin complément inverse, parsing, etc.) |
+| Component         | Description                                                              |
+|------------------|--------------------------------------------------------------------------|
+| `Sequence`        | Base class representing a biological sequence                            |
+| `ReadFasta`, `ReadFastq` | Reading, validation, and cleaning of input files                        |
+| `KmerIndex`       | Genome indexing using k-mers                                              |
+| `Mapper`          | Mapping algorithm based on a voting system                                |
+| `Utils`           | Utility functions (cleaning, reverse complement, parsing, etc.)           |
 
 ---
 
 ## Documentation
 
-La documentation est générée automatiquement avec Doxygen.
+The documentation is automatically generated with Doxygen.
 
-Pour la générer :
+To generate it:
 
 ```bash
 doxygen
 ```
 
-La documentation HTML sera disponible dans le dossier `./doc/html/index.html`.
+The HTML documentation will be available in the `./doc/html/index.html` folder.
 
 ---
 
-## Licence
+## License
 
-Ce projet est distribué sous la **licence CeCILL**, une licence libre conforme au droit français et compatible avec la GNU GPL.
+This project is distributed under the **CeCILL license**, a free software license compliant with French law and compatible with the GNU GPL.
 
-Le texte complet de la licence est disponible à l'adresse suivante :  
-<https://cecill.info/licences/Licence_CeCILL_V2.1-fr.html>
+The full license text is available at the following address:  
+<https://cecill.info/licences/Licence_CeCILL_V2.1-en.html>
