@@ -1,9 +1,0 @@
-<map id="ReadFasta::getSequences" name="ReadFasta::getSequences">
-<area shape="rect" id="Node000001" title="Retourne les séquences valides lues depuis le fichier." alt="" coords="271,55,447,80"/>
-<area shape="rect" id="Node000002" href="$g__benchmark_8cpp.html#a5746f0c84d2684772beda500fdbd1803" title="Lit la séquence génomique depuis un fichier FASTA (première séquence uniquement)." alt="" coords="35,5,193,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,54,181,34,182,29,277,48"/>
-<area shape="rect" id="Node000003" href="$class_mapper.html#a4c710ffe48a351b6171bf3e2e36a3d48" title="Charge tous les reads valides à partir d&#39;un répertoire contenant des fichiers FASTA/FASTQ." alt="" coords="5,55,223,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,70,223,70,223,65,255,65"/>
-<area shape="rect" id="Node000004" href="$class_mapper.html#aeab5b7b7082c11dd6fab0da8fe89355d" title="Charge un fichier FASTA et indexe le génome pour les k&#45;mers." alt="" coords="36,104,192,130"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="277,87,182,106,181,101,276,81"/>
-</map>

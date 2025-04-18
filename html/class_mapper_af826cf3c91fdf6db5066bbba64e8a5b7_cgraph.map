@@ -1,5 +1,0 @@
-<map id="Mapper::analyzeRead" name="Mapper::analyzeRead">
-<area shape="rect" id="Node000001" title="Analyse un read pour déterminer sa position la plus probable dans le génome de référence." alt="" coords="5,5,154,31"/>
-<area shape="rect" id="Node000002" href="$class_sequence.html#ad188df5184302e3ea197c8360588de95" title="Retourne la séquence nucléotidique." alt="" coords="202,5,365,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,16,186,16,186,21,154,21"/>
-</map>

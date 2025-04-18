@@ -1,9 +1,0 @@
-<map id="src/KmerIndex.hpp" name="src/KmerIndex.hpp">
-<area shape="rect" id="Node000001" title="Déclaration de la classe KmerIndex pour l&#39;indexation de k&#45;mers dans un génome." alt="" coords="103,5,234,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,116,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,34,93,72,90,68,149,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="140,79,197,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,31,171,63,166,63,166,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="222,79,275,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,30,226,67,222,71,180,34"/>
-</map>

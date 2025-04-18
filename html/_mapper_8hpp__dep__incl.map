@@ -1,7 +1,0 @@
-<map id="src/Mapper.hpp" name="src/Mapper.hpp">
-<area shape="rect" id="Node000001" title="Déclaration de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="81,5,192,31"/>
-<area shape="rect" id="Node000002" href="$_mapper_8cpp.html" title="Implémentation de la classe Mapper pour le mapping de reads sur un génome de référence." alt="" coords="5,79,116,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,44,75,81,71,77,111,40"/>
-<area shape="rect" id="Node000003" href="$g__benchmark_8cpp.html" title="Benchmark de la fonction Mapper::analyzeRead() avec un vrai génome de référence (E...." alt="" coords="139,79,286,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,40,202,77,198,81,159,44"/>
-</map>
